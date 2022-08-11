@@ -43,11 +43,6 @@
 			gpios = <&gpio 17 GPIO_ACTIVE_HIGH>;
 		};
 
-		led_net_green: net_green {
-			label = "green:net";
-			gpios = <&gpio 18 GPIO_ACTIVE_LOW>;
-		};
-
 		led_net_blue: net_blue {
 			label = "blue:net";
 			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
@@ -234,6 +229,13 @@
 
 &pcie2 {
 	status = "disabled";
+};
+
+&state_default {
+	gpio {
+		groups = "wdt";
+		function = "gpio";
+	};
 };
 
 &gmac1 {
